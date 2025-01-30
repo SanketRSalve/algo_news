@@ -46,8 +46,13 @@ class MainScreen extends ConsumerWidget {
     ];
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         centerTitle: true,
-        title: Text("AlgoNews"),
+        shadowColor: Colors.grey[100]!.withAlpha(100),
+        title: Text(
+          "AlgoNews",
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
       ),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(

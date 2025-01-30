@@ -16,9 +16,9 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: lightColorScheme,
     appBarTheme: AppBarTheme(
-      backgroundColor: lightColorScheme.background,
-      foregroundColor: lightColorScheme.onBackground,
-      elevation: 0,
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      elevation: 2,
     ),
     cardTheme: CardTheme(
       color: lightColorScheme.surface,
