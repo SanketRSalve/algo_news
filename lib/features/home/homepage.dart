@@ -14,7 +14,13 @@ class HomePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Column(
-        children: [CategoryList(), Expanded(child: NewsList())],
+        children: [
+          CategoryList(),
+          const SizedBox(
+            height: 8.0,
+          ),
+          Expanded(child: NewsList())
+        ],
       ),
     );
   }
