@@ -18,8 +18,7 @@ class CategoryList extends ConsumerWidget {
         separatorBuilder: (context, index) => const SizedBox(width: 10.0),
         itemBuilder: (context, index) {
           final category = NewsCategory.values[index];
-          final isSelected = selectedCategory == index;
-
+          final isSelected = selectedCategory == category;
           return FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: isSelected ? Colors.blueAccent : Colors.white,
