@@ -22,42 +22,23 @@ class CategoryList extends ConsumerWidget {
           final category = NewsCategory.values[index];
           final isSelected = selectedCategory == category;
 
-          return isSelected
-              ? FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.primaryColor,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                  ),
-                  onPressed: () {
-                    ref
-                        .read(newsCategoriesProvider.notifier)
-                        .setCategory(category);
-                  },
-                  child: Text(
-                    category.name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )
-              : TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                  ),
-                  onPressed: () {
-                    ref
-                        .read(newsCategoriesProvider.notifier)
-                        .setCategory(category);
-                  },
-                  child: Text(
-                    category.name,
-                    style: const TextStyle(
-                      color: AppColors.grey,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                );
+          return FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor:
+                  isSelected ? AppColors.primaryColor : Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+            ),
+            onPressed: () {
+              ref.read(newsCategoriesProvider.notifier).setCategory(category);
+            },
+            child: Text(
+              category.name,
+              style: TextStyle(
+                color: isSelected ? Colors.white : Colors.black54,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          );
         },
       ),
     );

@@ -15,14 +15,14 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: lightColorScheme,
-    scaffoldBackgroundColor: AppColors.surfaceColor,
+    scaffoldBackgroundColor: Color(0xFFF9FAFB),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
       elevation: 2,
     ),
     cardTheme: CardTheme(
-      color: lightColorScheme.surface,
+      color: Colors.white,
       elevation: 2,
       shadowColor: lightColorScheme.shadow,
     ),

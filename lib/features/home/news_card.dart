@@ -13,6 +13,7 @@ class NewsCard extends StatelessWidget {
   final VoidCallback? onBookmark;
   final bool isBookmarked;
   final String? imageUrl;
+  final String? sourceUrl;
 
   const NewsCard({
     super.key,
@@ -24,6 +25,7 @@ class NewsCard extends StatelessWidget {
     this.onBookmark,
     this.isBookmarked = false,
     this.imageUrl,
+    this.sourceUrl,
   });
 
   @override
@@ -41,6 +43,7 @@ class NewsCard extends StatelessWidget {
               isBookmarked: isBookmarked,
               onBookmark: onBookmark,
               imageUrl: imageUrl,
+              sourceUrl: sourceUrl,
             ),
           ),
         );
@@ -143,7 +146,8 @@ class NewsCard extends StatelessWidget {
                     children: [
                       Text(
                         formatTimeAgo(timeAgo),
-                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                       GestureDetector(
                         onTap: onReadMore,

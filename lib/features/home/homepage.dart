@@ -11,16 +11,25 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      child: Column(
-        children: [
-          CategoryList(),
-          const SizedBox(
-            height: 8.0,
+    return Scaffold(
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 12.0),
+          child: const Text('AlgoNews'),
+        ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(50),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: CategoryList(),
           ),
-          Expanded(child: NewsList())
-        ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Column(
+          children: [Expanded(child: NewsList())],
+        ),
       ),
     );
   }
@@ -60,6 +69,7 @@ class NewsList extends ConsumerWidget {
                 description: news.content,
                 imageUrl: news.urlToImage,
                 timeAgo: news.publishedAt,
+                sourceUrl: news.url,
                 onReadMore: () {
                   print("Read more tapped for ${news.title}!");
                 },
