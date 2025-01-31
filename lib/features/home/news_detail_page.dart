@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class NewsDetailPage extends StatelessWidget {
@@ -7,6 +8,7 @@ class NewsDetailPage extends StatelessWidget {
   final String timeAgo;
   final bool isBookmarked;
   final VoidCallback? onBookmark;
+  final String? imageUrl;
 
   const NewsDetailPage({
     super.key,
@@ -16,6 +18,7 @@ class NewsDetailPage extends StatelessWidget {
     required this.timeAgo,
     this.isBookmarked = false,
     this.onBookmark,
+    this.imageUrl,
   });
 
   @override
@@ -39,14 +42,37 @@ class NewsDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image placeholder
-            Container(
-              height: 200,
+            // Image with loading and error handling
+            SizedBox(
+              height: 250,
               width: double.infinity,
-              color: Colors.grey[300],
-              child: const Center(
-                child: Icon(Icons.image, size: 50, color: Colors.grey),
-              ),
+              child: imageUrl != null && imageUrl!.isNotEmpty
+                  ? CachedNetworkImage(
+                      imageUrl: imageUrl!,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => Container(
+                        color: Colors.grey[300],
+                        child: const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
+                      errorWidget: (context, url, error) => Container(
+                        color: Colors.grey[300],
+                        child: const Icon(
+                          Icons.image_not_supported,
+                          size: 50,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    )
+                  : Container(
+                      color: Colors.grey[300],
+                      child: const Icon(
+                        Icons.image,
+                        size: 50,
+                        color: Colors.grey,
+                      ),
+                    ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

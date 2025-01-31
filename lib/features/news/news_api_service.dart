@@ -16,6 +16,8 @@ class NewsApiService {
         'category': category.name,
         'apiKey': _apiKey,
         'country': 'us',
+        'page': 1,
+        'pageSize': 10,
       },
     );
     return response.data;

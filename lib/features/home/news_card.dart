@@ -1,5 +1,8 @@
+import 'package:algo_news/core/constants/app_colors.dart';
 import 'package:algo_news/features/home/news_detail_page.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewsCard extends StatelessWidget {
   final String title;
@@ -9,6 +12,7 @@ class NewsCard extends StatelessWidget {
   final VoidCallback? onReadMore;
   final VoidCallback? onBookmark;
   final bool isBookmarked;
+  final String? imageUrl;
 
   const NewsCard({
     super.key,
@@ -19,6 +23,7 @@ class NewsCard extends StatelessWidget {
     this.onReadMore,
     this.onBookmark,
     this.isBookmarked = false,
+    this.imageUrl,
   });
 
   @override
@@ -35,6 +40,7 @@ class NewsCard extends StatelessWidget {
               timeAgo: timeAgo,
               isBookmarked: isBookmarked,
               onBookmark: onBookmark,
+              imageUrl: imageUrl,
             ),
           ),
         );
@@ -46,31 +52,59 @@ class NewsCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                // Image Placeholder
-                Container(
-                  height: 150,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12),
-                    ),
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12),
                   ),
-                  child: const Center(
-                    child: Icon(Icons.image, size: 50, color: Colors.grey),
+                  child: SizedBox(
+                    height: 150,
+                    width: double.infinity,
+                    child: imageUrl != null && imageUrl!.isNotEmpty
+                        ? CachedNetworkImage(
+                            imageUrl: imageUrl!,
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) => Container(
+                              color: Colors.grey[300],
+                              child: const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            ),
+                            errorWidget: (context, url, error) => Container(
+                              color: Colors.grey[300],
+                              child: const Icon(
+                                Icons.image_not_supported,
+                                size: 50,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          )
+                        : Container(
+                            color: Colors.grey[300],
+                            child: const Icon(
+                              Icons.image,
+                              size: 50,
+                              color: Colors.grey,
+                            ),
+                          ),
                   ),
                 ),
-                // Bookmark Icon
+                // Bookmark Icon with semi-transparent background
                 Positioned(
                   top: 8,
                   right: 8,
-                  child: IconButton(
-                    icon: Icon(
-                      isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                      color: Colors.black54,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.3),
+                      shape: BoxShape.circle,
                     ),
-                    onPressed: onBookmark,
+                    child: IconButton(
+                      icon: Icon(
+                        isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                        color: Colors.white,
+                      ),
+                      onPressed: onBookmark,
+                    ),
                   ),
                 ),
               ],
@@ -78,9 +112,8 @@ class NewsCard extends StatelessWidget {
             // Content Section
             Container(
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.pink[50], // Light pink background
-                borderRadius: const BorderRadius.only(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(12),
                   bottomRight: Radius.circular(12),
                 ),
@@ -88,28 +121,39 @@ class NewsCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold)),
-                  Text(subhead,
-                      style: const TextStyle(fontSize: 14, color: Colors.grey)),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   const SizedBox(height: 4),
-                  Text(description, style: const TextStyle(fontSize: 14)),
+                  Text(
+                    subhead,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(timeAgo,
-                          style: const TextStyle(
-                              fontSize: 12, color: Colors.grey)),
+                      Text(
+                        formatTimeAgo(timeAgo),
+                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
                       GestureDetector(
                         onTap: onReadMore,
                         child: const Text(
                           "Read more",
                           style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.purple,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            color: AppColors.primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
@@ -122,4 +166,9 @@ class NewsCard extends StatelessWidget {
       ),
     );
   }
+}
+
+String formatTimeAgo(String isoDate) {
+  DateTime dateTime = DateTime.parse(isoDate).toLocal();
+  return DateFormat('MMM d, y').format(dateTime);
 }

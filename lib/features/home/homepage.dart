@@ -52,25 +52,29 @@ class NewsList extends ConsumerWidget {
                 ) ??
                 false;
 
-            return NewsCard(
-              title: news.title,
-              subhead: news.description,
-              description: news.content,
-              timeAgo: news.publishedAt,
-              onReadMore: () {
-                print("Read more tapped for ${news.title}!");
-              },
-              onBookmark: () {
-                ref.read(bookmarkControllerProvider.notifier).toggleBookmark(
-                      SavedNews(
-                        title: news.title,
-                        subhead: news.description,
-                        description: news.content,
-                        timeAgo: news.publishedAt,
-                      ),
-                    );
-              },
-              isBookmarked: isBookmarked,
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: NewsCard(
+                title: news.title,
+                subhead: news.description,
+                description: news.content,
+                imageUrl: news.urlToImage,
+                timeAgo: news.publishedAt,
+                onReadMore: () {
+                  print("Read more tapped for ${news.title}!");
+                },
+                onBookmark: () {
+                  ref.read(bookmarkControllerProvider.notifier).toggleBookmark(
+                        SavedNews(
+                          title: news.title,
+                          subhead: news.description,
+                          description: news.content,
+                          timeAgo: news.publishedAt,
+                        ),
+                      );
+                },
+                isBookmarked: isBookmarked,
+              ),
             );
           },
         );
