@@ -50,6 +50,7 @@ class NewsDetailPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         elevation: 0,
         leading: Container(
           margin: const EdgeInsets.all(8),

@@ -81,6 +81,9 @@ class NewsList extends ConsumerWidget {
                           subhead: news.description,
                           description: news.content,
                           timeAgo: news.publishedAt,
+                          imageUrl: news.urlToImage,
+                          sourceUrl: news.url,
+                          sourceName: news.source,
                         ),
                       );
                 },

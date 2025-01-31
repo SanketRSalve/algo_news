@@ -3,6 +3,9 @@ class SavedNews {
   final String subhead;
   final String description;
   final String timeAgo;
+  final String? imageUrl;
+  final String? sourceUrl;
+  final String? sourceName;
   final DateTime savedAt;
   
   SavedNews({
@@ -10,6 +13,9 @@ class SavedNews {
     required this.subhead,
     required this.description,
     required this.timeAgo,
+    this.imageUrl,
+    this.sourceUrl,
+    this.sourceName,
     DateTime? savedAt,
   }) : savedAt = savedAt ?? DateTime.now();
 
@@ -20,6 +26,9 @@ class SavedNews {
       'subhead': subhead,
       'description': description,
       'timeAgo': timeAgo,
+      'imageUrl': imageUrl,
+      'sourceUrl': sourceUrl,
+      'sourceName': sourceName,
       'savedAt': savedAt.toIso8601String(),
     };
   }
@@ -31,6 +40,9 @@ class SavedNews {
       subhead: json['subhead'],
       description: json['description'],
       timeAgo: json['timeAgo'],
+      imageUrl: json['imageUrl'],
+      sourceUrl: json['sourceUrl'],
+      sourceName: json['sourceName'],
       savedAt: DateTime.parse(json['savedAt']),
     );
   }

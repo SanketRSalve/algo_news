@@ -31,7 +31,10 @@ class SavedNewsPage extends ConsumerWidget {
               title: news.title,
               subhead: news.subhead,
               description: news.description,
+              imageUrl: news.imageUrl,
               timeAgo: news.timeAgo,
+              sourceName: news.sourceName,
+              sourceUrl: news.sourceUrl,
               isBookmarked: true, // Always true since these are saved items
               onBookmark: () {
                 bookmarkController.toggleBookmark(news);
