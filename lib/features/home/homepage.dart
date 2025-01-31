@@ -70,6 +70,7 @@ class NewsList extends ConsumerWidget {
                 imageUrl: news.urlToImage,
                 timeAgo: news.publishedAt,
                 sourceUrl: news.url,
+                sourceName: news.source,
                 onReadMore: () {
                   print("Read more tapped for ${news.title}!");
                 },

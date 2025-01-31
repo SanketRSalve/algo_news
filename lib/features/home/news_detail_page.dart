@@ -13,6 +13,7 @@ class NewsDetailPage extends StatelessWidget {
   final VoidCallback? onBookmark;
   final String? imageUrl;
   final String? sourceUrl;
+  final String? sourceName;
 
   const NewsDetailPage({
     super.key,
@@ -24,6 +25,7 @@ class NewsDetailPage extends StatelessWidget {
     this.onBookmark,
     this.imageUrl,
     this.sourceUrl,
+    this.sourceName,
   });
 
   String cleanContent(String content) {
@@ -145,6 +147,38 @@ class NewsDetailPage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        if (sourceName != null) ...[
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.newspaper,
+                                  size: 16,
+                                  color: Colors.grey[700],
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  sourceName!,
+                                  style: TextStyle(
+                                    color: Colors.grey[700],
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                     const SizedBox(height: 16),

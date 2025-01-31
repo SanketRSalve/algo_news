@@ -14,6 +14,7 @@ class NewsCard extends StatelessWidget {
   final bool isBookmarked;
   final String? imageUrl;
   final String? sourceUrl;
+  final String? sourceName;
 
   const NewsCard({
     super.key,
@@ -26,6 +27,7 @@ class NewsCard extends StatelessWidget {
     this.isBookmarked = false,
     this.imageUrl,
     this.sourceUrl,
+    this.sourceName,
   });
 
   @override
@@ -44,6 +46,7 @@ class NewsCard extends StatelessWidget {
               onBookmark: onBookmark,
               imageUrl: imageUrl,
               sourceUrl: sourceUrl,
+              sourceName: sourceName,
             ),
           ),
         );
