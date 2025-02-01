@@ -22,4 +22,18 @@ class NewsApiService {
     );
     return response.data;
   }
+
+  Future<Map<String, dynamic>> searchNews(String query) async {
+    final response = await _dio.get(
+      '$_baseUrl/everything',
+      queryParameters: {
+        'q': query,
+        'apiKey': _apiKey,
+        'pageSize': 15,
+        'sortBy': 'relevancy',
+        'language': 'en',
+      },
+    );
+    return response.data;
+  }
 }

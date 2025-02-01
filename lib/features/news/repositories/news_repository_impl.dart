@@ -18,4 +18,16 @@ class NewsRepositoryImpl implements NewsRepository {
       throw Exception('Failed to fetch news by category: $e');
     }
   }
+
+  @override
+  Future<List<NewsModel>> searchNews(String query) async {
+    try {
+      final response = await _newsApiService.searchNews(query);
+      return (response['articles'] as List)
+          .map((article) => NewsModel.fromJson(article))
+          .toList();
+    } catch (e) {
+      throw Exception('Failed to search news: $e');
+    }
+  }
 }
