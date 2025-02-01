@@ -1,7 +1,7 @@
-import 'package:algo_news/features/news/news_category.dart';
-import 'package:algo_news/features/news/news_category_provider.dart';
-import 'package:algo_news/features/news/news_model.dart';
-import 'package:algo_news/features/news/news_providers.dart';
+import 'package:algo_news/features/news/models/news_category.dart';
+import 'package:algo_news/features/news/controllers/news_category_provider.dart';
+import 'package:algo_news/features/news/models/news_model.dart';
+import 'package:algo_news/features/news/providers/news_providers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'news_controller.g.dart';

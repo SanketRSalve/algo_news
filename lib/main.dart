@@ -1,14 +1,14 @@
 import 'package:algo_news/core/constants/app_colors.dart';
-import 'package:algo_news/core/navigation/bottom_navigation_provider.dart';
-import 'package:algo_news/features/home/homepage.dart';
-import 'package:algo_news/features/saved/saved_news_page.dart';
+import 'package:algo_news/core/navigation/providers/bottom_navigation_provider.dart';
+import 'package:algo_news/core/theme/theme_controller.dart';
+import 'package:algo_news/features/home/presentation/pages/homepage.dart';
+import 'package:algo_news/features/bookmarks/presentation/pages/saved_news_page.dart';
 import 'package:algo_news/features/search/search_news_page.dart';
 import 'package:algo_news/features/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'core/theme/app_theme.dart';
-import 'core/theme/theme_controller.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

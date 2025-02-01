@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:algo_news/features/bookmarks/bookmark_repository_provider.dart';
+import 'package:algo_news/features/bookmarks/providers/bookmarks_providers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'saved_news.dart';
+import '../models/saved_news.dart';
 
 part 'bookmark_controller.g.dart';
 

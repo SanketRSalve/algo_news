@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:algo_news/features/bookmarks/saved_news.dart';
+import 'package:algo_news/features/bookmarks/models/saved_news.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BookmarkRepository {
@@ -19,7 +19,7 @@ class BookmarkRepository {
   }
 
   Future<List<SavedNews>> getAllSavedNews() async {
-    final String? jsonString = _prefs!.getString(_storageKey);
+    final String? jsonString = _prefs.getString(_storageKey);
     if (jsonString == null) return [];
 
     final List<dynamic> jsonList = json.decode(jsonString);

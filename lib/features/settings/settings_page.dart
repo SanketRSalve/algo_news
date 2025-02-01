@@ -1,6 +1,6 @@
+import 'package:algo_news/core/theme/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../core/theme/theme_controller.dart';
 import '../../core/constants/app_colors.dart';
 
 class SettingsPage extends ConsumerWidget {

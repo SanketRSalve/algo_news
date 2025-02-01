@@ -22,4 +22,4 @@ class ThemeController extends StateNotifier<bool> {
     state = !state;
     await prefs.setBool(_themeKey, state);
   }
-} 
+}

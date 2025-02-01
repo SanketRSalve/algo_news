@@ -1,5 +1,5 @@
 import 'package:algo_news/core/constants/app_colors.dart';
-import 'package:algo_news/features/home/news_detail_page.dart';
+import 'package:algo_news/features/home/presentation/widgets/news_detail_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -64,7 +64,7 @@ class NewsCard extends StatelessWidget {
                     topRight: Radius.circular(12),
                   ),
                   child: SizedBox(
-                    height: 150,
+                    height: 200,
                     width: double.infinity,
                     child: imageUrl != null && imageUrl!.isNotEmpty
                         ? CachedNetworkImage(

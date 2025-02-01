@@ -17,7 +17,7 @@ class AppTheme {
     colorScheme: lightColorScheme,
     scaffoldBackgroundColor: Color(0xFFF9FAFB),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.primaryColor.withAlpha(10),
       foregroundColor: Colors.black,
       elevation: 2,
     ),

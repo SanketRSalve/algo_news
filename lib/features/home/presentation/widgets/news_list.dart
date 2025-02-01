@@ -1,39 +1,10 @@
-import 'package:algo_news/features/bookmarks/saved_news.dart';
-import 'package:algo_news/features/home/news_card.dart';
-import 'package:algo_news/features/news/news_category_list.dart';
-import 'package:algo_news/features/news/news_controller.dart';
+
+import 'package:algo_news/features/bookmarks/controllers/bookmark_controller.dart';
+import 'package:algo_news/features/bookmarks/models/saved_news.dart';
+import 'package:algo_news/features/home/presentation/widgets/news_card.dart';
+import 'package:algo_news/features/news/controllers/news_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../bookmarks/bookmark_controller.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(top: 12.0),
-          child: const Text('AlgoNews'),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(50),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: CategoryList(),
-          ),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Column(
-          children: [Expanded(child: NewsList())],
-        ),
-      ),
-    );
-  }
-}
 
 class NewsList extends ConsumerWidget {
   const NewsList({super.key});

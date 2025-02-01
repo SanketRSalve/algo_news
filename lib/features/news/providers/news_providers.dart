@@ -1,7 +1,7 @@
-import 'package:algo_news/core/navigation/providers/dio_provider.dart';
-import 'package:algo_news/features/news/news_api_service.dart';
-import 'package:algo_news/features/news/news_repository.dart';
-import 'package:algo_news/features/news/news_repository_impl.dart';
+import 'package:algo_news/core/network/providers/dio_provider.dart';
+import 'package:algo_news/features/news/services/news_api_service.dart';
+import 'package:algo_news/features/news/repositories/news_repository.dart';
+import 'package:algo_news/features/news/repositories/news_repository_impl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

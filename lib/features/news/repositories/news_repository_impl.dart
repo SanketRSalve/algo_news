@@ -1,7 +1,7 @@
-import 'package:algo_news/features/news/news_api_service.dart';
-import 'package:algo_news/features/news/news_category.dart';
-import 'package:algo_news/features/news/news_model.dart';
-import 'package:algo_news/features/news/news_repository.dart';
+import 'package:algo_news/features/news/services/news_api_service.dart';
+import 'package:algo_news/features/news/models/news_category.dart';
+import 'package:algo_news/features/news/models/news_model.dart';
+import 'package:algo_news/features/news/repositories/news_repository.dart';
 
 class NewsRepositoryImpl implements NewsRepository {
   final NewsApiService _newsApiService;

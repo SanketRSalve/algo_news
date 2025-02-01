@@ -1,6 +1,6 @@
 import 'package:algo_news/core/constants/app_colors.dart';
-import 'package:algo_news/features/news/news_category.dart';
-import 'package:algo_news/features/news/news_category_provider.dart';
+import 'package:algo_news/features/news/models/news_category.dart';
+import 'package:algo_news/features/news/controllers/news_category_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

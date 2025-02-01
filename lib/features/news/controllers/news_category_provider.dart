@@ -1,4 +1,4 @@
-import 'package:algo_news/features/news/news_category.dart';
+import 'package:algo_news/features/news/models/news_category.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'news_category_provider.g.dart';
