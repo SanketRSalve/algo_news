@@ -1,4 +1,5 @@
 enum NewsCategory {
+  all('All'),
   business('Business'),
   entertainment('Entertainment'),
   general('General'),

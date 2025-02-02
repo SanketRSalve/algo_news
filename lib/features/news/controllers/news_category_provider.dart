@@ -7,7 +7,7 @@ part 'news_category_provider.g.dart';
 class NewsCategories extends _$NewsCategories {
   @override
   NewsCategory build() {
-    return NewsCategory.business;
+    return NewsCategory.all;
   }
 
   void setCategory(NewsCategory category) {

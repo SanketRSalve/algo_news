@@ -10,15 +10,21 @@ class NewsApiService {
 
   // Fetch News by Category
   Future<Map<String, dynamic>> getNewsByCategory(NewsCategory category) async {
+    final Map<String, dynamic> queryParameters = {
+      'apiKey': _apiKey,
+      'country': 'us',
+      'page': 1,
+      'pageSize': 10,
+    };
+
+    // Only add category parameter if it's not "all"
+    if (category != NewsCategory.all) {
+      queryParameters['category'] = category.name;
+    }
+
     final response = await _dio.get(
       '$_baseUrl/top-headlines',
-      queryParameters: {
-        'category': category.name,
-        'apiKey': _apiKey,
-        'country': 'us',
-        'page': 1,
-        'pageSize': 10,
-      },
+      queryParameters: queryParameters,
     );
     return response.data;
   }
