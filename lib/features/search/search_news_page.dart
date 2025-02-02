@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:algo_news/core/constants/app_colors.dart';
 import 'package:algo_news/features/home/presentation/widgets/news_card.dart';
 import 'package:algo_news/features/search/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +63,7 @@ class _SearchNewsPageState extends ConsumerState<SearchNewsPage> {
                   if (_searchController.text.isEmpty) {
                     return _buildInitialState();
                   }
-                  
+
                   if (news.isEmpty) {
                     return _buildEmptyState();
                   }

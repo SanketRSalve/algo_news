@@ -32,7 +32,7 @@ class CategoryList extends ConsumerWidget {
               ref.read(newsCategoriesProvider.notifier).setCategory(category);
             },
             child: Text(
-              category.name,
+              category.title,
               style: TextStyle(
                 color: isSelected ? Colors.white : Colors.black54,
                 fontWeight: FontWeight.w500,

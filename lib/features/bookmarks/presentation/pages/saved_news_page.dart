@@ -1,3 +1,4 @@
+import 'package:algo_news/core/constants/app_colors.dart';
 import 'package:algo_news/features/bookmarks/controllers/bookmark_controller.dart';
 import 'package:algo_news/features/home/presentation/widgets/news_card.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,12 @@ class SavedNewsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Saved"),
+        backgroundColor: AppColors.primaryColor.withAlpha(10),
+        surfaceTintColor: Colors.transparent,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+          child: const Text('Saved'),
+        ),
         centerTitle: false,
       ),
       body: savedNewsState.when(
