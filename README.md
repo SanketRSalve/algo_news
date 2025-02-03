@@ -2,6 +2,8 @@
 
 A news application built with Flutter that provides users with the latest news articles from various sources. The app features a clean UI, category-based news browsing, bookmarking functionality
 
+[apk](https://drive.google.com/file/d/1_PhTZHeua4huwBNj9AUMRs1WbYzbS2XH/view?usp=sharing)
+
 ## Features
 
 - 📰 Browse news by categories (All, Business, Technology, Sports, etc.)
