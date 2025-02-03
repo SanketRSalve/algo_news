@@ -27,18 +27,7 @@ A news application built with Flutter that provides users with the latest news a
 
 
 ## Architecture and Design
-The app follows a clean architecture pattern with the following structure:
-lib/
-├── core/
-│ ├── constants/
-│ ├── navigation/
-│ └── theme/
-├── features/
-│ ├── news/
-│ ├── bookmarks/
-│ ├── search/
-│ └── settings/
-└── main.dart
+The app follows a clean architecture pattern
 
 ### State Management
 - Uses Riverpod for state management
