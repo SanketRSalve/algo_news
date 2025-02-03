@@ -14,6 +14,17 @@ Link to apk file: [apk](https://drive.google.com/file/d/1_PhTZHeua4huwBNj9AUMRs1
 - 📱 clean UI
 - 📄 Pagination (NewsAPI has some limitation for this I guess)[https://stackoverflow.com/questions/52570711/newsapi-returning-totalresults-20-even-after-specifying-pagesize-100]
 
+## Screenshots
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/763551da-91f5-4583-851e-67a50d7b69ba" width="30%">
+  <img src="https://github.com/user-attachments/assets/cfe9c114-a1da-48e4-9f09-5a8ae2d7519c" width="30%">
+  <img src="https://github.com/user-attachments/assets/c3c3a3f8-9b14-4b71-b225-98311de4a550" width="30%">
+</p>
+
+
+
+
 ## Getting Started
 
 ### Prerequisites
